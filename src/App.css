@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  min-height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: grey;
+  margin-bottom: 1rem;
+}
+
+nav h1 {
+  font-family: cursive;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  list-style: none;
+}
+
+h1,
+.center {
+  text-align: center;
+}
+
+.About,
+.Store,
+.Item {
+  padding-left: 1rem;
+}
+
+.Item p,
+.About p {
+  text-align: center;
+}
+
+img {
+  height: 30rem;
+  display: block;
+  margin: auto;
+}
