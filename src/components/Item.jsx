@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '../App.css';
+import Skeleton from './Skeleton.jsx';
 
 
 const Item = (props) => {
@@ -14,15 +16,23 @@ const Item = (props) => {
   
   const fetchData = async () => {
     const raw = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${id}`);
-    const data = await raw.json();
-    setItem(data.data.item);
+    const response = await raw.json();
+    setItem(response.data.item);
   }
 
   return (
     <div className="Item">
-      <h1>{ item.name }</h1>
-      <p>{ item.description }</p>
-      <img src={ item.images.background } alt=""/>
+      {item.name === undefined
+      ? (<div className="item-skeleton">
+        <Skeleton type="header" />
+        <Skeleton type="text" />
+        <Skeleton type="image" />
+      </div>)
+      : (<div>
+        <h1>{ item.name }</h1>
+        <p>{ item.description }</p>
+        <img src={ item.images.background } alt="a fortnite background" />
+      </div>)}
     </div>
   );
 }
