@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Skeleton from './Skeleton.jsx';
+import Loading from './Loading.jsx';
 
 
 const Store = (props) => {
@@ -22,8 +23,9 @@ const Store = (props) => {
     <div className="Store">
       <h1>Items in Store</h1>
       <p className="center">Click on an item to see more details ...</p>
-      {items.length === 0 
+      {items.length === 0
       ? skeletonScreenCount.map(num => <Skeleton key={num} type="text" />)
+      // <Loading />
       : items.map(item => (
         <h2 key={item.itemId}>
           <Link to={`/store/${item.itemId}`}>{ item.item.name }</Link>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../App.css';
 import Skeleton from './Skeleton.jsx';
+import Loading from './Loading.jsx';
 
 
 const Item = (props) => {
@@ -28,6 +29,7 @@ const Item = (props) => {
         <Skeleton type="text" />
         <Skeleton type="image" />
       </div>)
+      // <Loading />
       : (<div>
         <h1>{ item.name }</h1>
         <p>{ item.description }</p>
